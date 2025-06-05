@@ -1,0 +1,320 @@
+#BRtoolbar, .desktop-only, #BRnavCntlBtm {
+  display: none;
+}
+.BRicon:focus, .ui-slider-handle:focus {
+  outline: 0;
+}
+body {
+ margin: 0;
+ padding: 0;
+}
+#BookReader {
+ left:0;
+ right:0;
+ top:0;
+ bottom:0;
+ -webkit-overflow-scrolling: touch;
+}
+#BRcontainer {
+    top:0;
+    bottom:0;
+    width:100%;
+    z-index: 1;
+    overflow-x:auto;
+    overflow-y:scroll;
+    position:fixed;
+    background-color: #3a3b3b;
+}
+.br-ui-embed #BRcontainer {
+  background-color: transparent;
+}
+
+.BRpagediv1up {
+    overflow:hidden;
+    cursor: move;
+    background-color: #FEFDEB;
+    -webkit-box-shadow: 1px 1px 2px #333;
+    -moz-box-shadow: 1px 1px 2px #333;
+    box-shadow: 1px 1px 2px #333;
+}
+
+.BRpageimage {
+    /* Bird Book */
+    background-color: #FEFDEB;
+}
+
+.BRPreview .BRpageimage {
+    /*background-color: transparent;*/
+    background-color: #eee;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.BRemptypage {
+    background-color: #3a3b3b;
+}
+
+/* Disable selection on Firefox and WebKit */
+.BRnoselect {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
+.hidden {
+  display: none;
+}
+
+#BRpagenum {
+    border: none;
+    background-color: #9A9B9D;
+    color: #ccc;
+    font-family: arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+.BRicon {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    background-image: url(../br-icons.png);
+    background-repeat: no-repeat;
+    background-position-y: -5px;
+}
+.BRicon.book_left { background-position-x: -445px; }
+.BRicon.book_right { background-position-x: -524px; }
+.BRicon.zoom_out { background-position-x: -603px; }
+.BRicon.zoom_in { background-position-x: -686px; }
+.BRicon.full { background-position-x: -365px; }
+.exit-full {
+  cursor: pointer;
+  vertical-align: middle;
+  border: 0;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M40.5,23.1c-0.6-0.2-1.2-0.1-1.6,0.3l-4.2,4.2L23.9,16.9c-0.6-0.6-1.5-0.6-2.1,0l-4.8,4.8c-0.6,0.6-0.6,1.5,0,2.1l10.8,10.8  l-4.2,4.2c-0.4,0.4-0.6,1.1-0.3,1.6s0.8,0.9,1.4,0.9h15.4c0.8,0,1.5-0.7,1.5-1.5V24.5C41.4,23.9,41,23.4,40.5,23.1z" fill="%23808080"/><path d="M72.3,65.4l4.2-4.2c0.4-0.4,0.6-1.1,0.3-1.6s-0.8-0.9-1.4-0.9H60.1c-0.8,0-1.5,0.7-1.5,1.5v15.4c0,0.6,0.4,1.2,0.9,1.4  c0.2,0.1,0.4,0.1,0.6,0.1c0.4,0,0.8-0.2,1.1-0.4l4.2-4.2l10.8,10.8c0.3,0.3,0.7,0.4,1.1,0.4s0.8-0.1,1.1-0.4l4.8-4.8  c0.6-0.6,0.6-1.5,0-2.1L72.3,65.4z" fill="%23808080"/><path d="M39.9,58.6H24.5c-0.6,0-1.2,0.4-1.4,0.9s-0.1,1.2,0.3,1.6l4.2,4.2L16.9,76.1c-0.6,0.6-0.6,1.5,0,2.1l4.8,4.8  c0.3,0.3,0.7,0.4,1.1,0.4s0.8-0.1,1.1-0.4l10.8-10.8l4.2,4.2c0.3,0.3,0.7,0.4,1.1,0.4c0.2,0,0.4,0,0.6-0.1c0.6-0.2,0.9-0.8,0.9-1.4  V60.1C41.4,59.3,40.7,58.6,39.9,58.6z" fill="%23808080"/><path d="M78.2,16.9c-0.6-0.6-1.5-0.6-2.1,0L65.4,27.7l-4.2-4.2c-0.4-0.4-1.1-0.6-1.6-0.3s-0.9,0.8-0.9,1.4v15.4  c0,0.8,0.7,1.5,1.5,1.5h15.4c0.6,0,1.2-0.4,1.4-0.9s0.1-1.2-0.3-1.6l-4.2-4.2l10.8-10.8c0.6-0.6,0.6-1.5,0-2.1L78.2,16.9z" fill="%23808080"/></svg>');
+}
+
+/*** end BRFloa ***/
+div#BRpage {
+    float: right;
+    width: 153px;
+    padding-left:12px;
+    text-align: right;
+}
+div#BRpage .BRicon.book_left {
+  /*border-bottom-left-radius: 5px;*/
+  /*border-top-left-radius: 5px;*/
+  border-right: 2px solid rgb(193,193,193);
+  box-sizing: content-box;
+}
+div#BRpage .BRicon.book_right {
+  /*border-bottom-right-radius: 5px;*/
+  /*border-top-right-radius: 5px;*/
+  box-sizing: content-box;
+}
+
+div#BRnav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    overflow: visible;
+    z-index: 100;
+    background-color: rgb(247,247,247);
+    -webkit-box-shadow: 1px 1px 2px #333;
+    /* No shadow for FF, to be consistent with toolbar */
+    _position:absolute;
+    _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight);
+}
+div#BRnavpos {
+    position: relative;
+    margin-right: 153px;
+    height: 30px;
+}
+div#BRpager {
+    position: relative;
+    /* Account for padding around nav line */
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 14px;
+    top: 8px;
+    background-color: rgb(216,216,216);
+    border-radius: 10px;
+    box-shadow: inset 0px 1px 1px 0px rgba(155,154,155,0.39);
+}
+div#BRslider {
+    position: absolute;
+    top: 13px;
+    height: 27px;
+}
+
+/* XXXmang verify correct use of handle class */
+#BRpager .ui-slider-handle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius:50%;
+    top: -2px;
+    margin-left: -9px; /* Center icon */
+    z-index: 103;
+    background-color: rgb(36,94,131);
+
+}
+div#BRnavline {
+    position: relative;
+    height: 1px;
+    width: auto;
+    top: -1px;
+    margin: 0 10px;
+}
+.BRnavend {
+    top: -2px;
+    width: 1px;
+    height: 6px;
+}
+#BRnavleft {
+    right: 0;
+}
+#BRnavright {
+    left: 0;
+}
+
+div#BRfiller {
+    position: absolute;
+    height: 40px;
+    width: 10px;
+    background-color: white;
+    top: 0;
+    left: 0;
+    z-index: 102;
+}
+div#slider {
+    position: absolute;
+    width: 2500px;
+    height: 27px;
+    top: 0;
+    left: -2478px;
+    background-color: #000;
+    opacity: .1;
+    z-index: 101;
+}
+div#pager {
+    position: absolute;
+    width: 23px;
+    height: 27px;
+    top: 0;
+    left: 8px;
+    background: url(images/slider.png);
+    z-index: 103;
+}
+div#pagenum {
+    display: none;
+    position: absolute;
+    bottom: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 5px;
+    width: 80px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    /*font-family: "Lucida Grande", "Arial", sans-serif;*/
+    left: -37px;
+}
+div#pagenum span {
+    /*color: #ffa337;*/
+    color: rgb(36,94,131);
+    font-style: italic;
+}
+#BRnav .front {
+    z-index: 10001;
+}
+div#BRzoomer {
+    position: fixed;
+    bottom: 40px;
+    right: 0;
+    width: 26px;
+    height: 190px;
+    z-index: 100;
+}
+div#BRzoompos {
+    position: relative;
+    width: 26px;
+    height: 190px;
+    top: 0;
+    left: 0;
+}
+div#BRzoomer button {
+    position: absolute;
+    left: 0;
+    background-color: white;
+    width: 26px;
+}
+div#BRzoomer button:hover {
+    background-color: #000;
+}
+div#BRzoomer .zoom_out {
+    top: 0;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    -webkit-box-shadow: 2px 2px 2px #333;
+    -moz-box-shadow: 2px 2px 2px #333;
+    box-shadow: 2px 2px 2px #333;
+}
+div#BRzoomer .zoom_in {
+    bottom: 0;
+    -webkit-border-top-left-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    border-top-left-radius: 6px;
+}
+div#BRzoomcontrol {
+    position: relative;
+    top: 40px;
+    left:3px;
+    width: 23px;
+    height: 110px;
+}
+div#BRzoomstrip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 23px;
+    height: 110px;
+    background-color: #000;
+    opacity: .1;
+}
+div#BRzoombtn {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    top: 0;
+    left: 0;
+    background: url("images/icon_zoomer.png");
+}
+
+/* Responsive Utiltities */
+/* Desktop */
+@media (min-width: 801px) {
+  .hide-desktop { display: none; }
+}
+/* Mobile */
+@media (max-width: 800px) {
+  .desktop-only { display: none; }
+  .hide-mobile { display: none; }
+}
+
+body { background-color: #939598;  }
+#BRpage { width: 165px;  !important}
+#BRnavpos { margin-right: 165px; }

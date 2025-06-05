@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="assets/css/br.css" />
+  <script type="text/javascript">
+    window.$ = window.jQuery = parent.$.extend(function(selector) { return parent.$(selector, document); }, parent.$);
+  </script>
+  <script type="text/javascript" src="assets/js/br-libs.js"></script>
+  <script type="text/javascript" src="assets/js/br.js"></script>
+</head>
+
+<body>
+<div id="BookReader"></div>
+
+<script type="text/javascript">
+var br = new BookReader();
+br.getPageURI = function(index, reduce, rotate) {
+    return 'http://qbahth.com/qpcm/' + this.scansDir + '/' + ('0000' + (index+1)).substr(-4, 4) + '.' + this.ext;
+};
+br.updateNavPageNum = function(index) {
+    $('#pagenum .currentpage').text(this.getPageNum(index));
+};
+br.imagesBaseURL = 'br-assets/images/';
+br.ui = 'full';
+br.pageProgression = 'lr';
+br.bookTitle = '';
+br.enableMobileNav = false;
+
+br.initToolbar = function() {};
+br.getPageWidth = function(index) {
+    return 1000;
+};
+br.getPageHeight = function(index) {
+    return 1500;
+};
+br.init();
+
+var brf = parent.$('#br-frame');
+if (brf.hasClass('full-screen'))
+    $('.toggle-fs').removeClass('BRicon full').addClass('exit-full');
+$('.toggle-fs').click(function() {
+    var to = parent.$(brf.hasClass('full-screen') ? '.modal-body' : 'body');
+    location.replace(location.href.replace(/page\/\d+/, 'page/' + (br.currentIndex() + 1)));
+    brf.toggleClass('full-screen').appendTo(to);
+});
+</script>
+</body>
+</html>
